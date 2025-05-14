@@ -7,10 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:migrate-dev": "npx prisma@latest migrate dev  --schema src/prisma/schema.prisma",
-    "db:migrate-prod": "npx prisma@latest migrate deploy  --schema src/prisma/schema.prisma",
-    "db:reset": "npx prisma@latest migrate reset  --schema src/prisma/schema.prisma",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build"
+    "db:generate": "npx -y prisma@latest generate --schema ./src/prisma/schema.prisma",
+    "db:migrate-dev": "npx -y prisma@latest migrate dev  --schema src/prisma/schema.prisma",
+    "db:migrate-prod": "npx -y prisma@latest migrate deploy  --schema src/prisma/schema.prisma",
+    "db:reset": "npx -y prisma@latest migrate reset  --schema src/prisma/schema.prisma",
+    "vercel-build": "npm run db:generate && npm run db:migrate-prod  && next build"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.1",
