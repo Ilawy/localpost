@@ -6,22 +6,45 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate": "npx prisma@latest migrate dev  --schema src/prisma/schema.prisma",
+    "db:reset": "npx prisma@latest migrate reset  --schema src/prisma/schema.prisma"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.9.1",
+    "@editorjs/editorjs": "^2.30.8",
+    "@editorjs/header": "^2.8.8",
+    "@prisma/client": "^6.7.0",
+    "@radix-ui/react-alert-dialog": "^1.1.13",
+    "@radix-ui/react-scroll-area": "^1.2.8",
+    "@radix-ui/react-separator": "^1.1.6",
+    "@radix-ui/react-slot": "^1.2.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.13",
+    "editorjs-html": "^4.0.5",
+    "editorjs-react-renderer": "^3.5.1",
+    "lucide-react": "^0.510.0",
+    "next": "15.3.2",
+    "next-auth": "^5.0.0-beta.28",
+    "quill": "^2.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "react-use": "^17.6.0",
+    "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "tw-animate-css": "^1.2.9",
+    "typescript": "^5",
+    "zod-prisma": "^0.1.2"
   }
 }
