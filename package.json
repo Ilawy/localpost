@@ -11,7 +11,7 @@
     "db:migrate-dev": "npx -y prisma@latest migrate dev  --schema src/prisma/schema.prisma",
     "db:migrate-prod": "npx -y prisma@latest migrate deploy  --schema src/prisma/schema.prisma",
     "db:reset": "npx -y prisma@latest migrate reset  --schema src/prisma/schema.prisma",
-    "vercel-build": "npm run db:generate && npm run db:migrate-prod  && next build"
+    "vercel-build": "npm run db:migrate-prod  && next build"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.9.1",
