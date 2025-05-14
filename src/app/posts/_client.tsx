@@ -38,8 +38,8 @@ export default function PostsClient({
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            You're trying to delete a post with title '{currentPost?.title}' and
-            id '{currentPost?.id}'
+            You&apos;re trying to delete a post with title &apos;
+            {currentPost?.title}&apos; and id &apos;{currentPost?.id}&apos;
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

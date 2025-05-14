@@ -43,7 +43,7 @@ export function NewPostForm({
 
       if (rootContainer.current) rootContainer.current.innerHTML = "";
     };
-  }, [initial?.content, setEditor]);
+  }, [initial?.content, setEditor, rootContainer.current]);
 
   async function save() {
     if (!editor) {
