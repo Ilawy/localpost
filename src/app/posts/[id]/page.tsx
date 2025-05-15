@@ -5,15 +5,16 @@ import { OutputData } from "@editorjs/editorjs";
 import edjHTML from "editorjs-html";
 import Link from "next/link";
 
-// export const dynamicParams = true; // or false, to 404 on unknown paths
-// export async function generateStaticParams() {
-//   const posts = await prisma.post.findMany({
-//     select: {
-//       id: true,
-//     },
-//   });
-//   return posts.map((post) => ({ ...post, id: String(post.id) }));
-// }
+export const dynamicParams = true; // or false, to 404 on unknown paths
+export async function generateStaticParams() {
+  // const posts = await prisma.post.findMany({
+  //   select: {
+  //     id: true,
+  //   },
+  // });
+  // return posts.map((post) => ({ ...post, id: String(post.id) }));
+  return [];
+}
 
 export default async function PostWithIdPage({
   params,
