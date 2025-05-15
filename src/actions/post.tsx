@@ -1,26 +1,32 @@
 import { prisma } from "@/prisma";
-import { PostModel } from "@/prisma/zod";
+import { PostSchema } from "@/prisma/zod";
 
 export async function createPost(authorId: string, unsafe_data: unknown) {
-  const data = PostModel.pick({
+  const data = PostSchema.pick({
     title: true,
     content: true,
   }).parse(unsafe_data);
   return await prisma.post.create({
     data: {
       ...data,
+      content: data.content!,
       authorId,
     },
   });
 }
 
 export async function updatePost(id: number, unsafe_data: unknown) {
-  const data = PostModel.pick({
+  const data = PostSchema.pick({
     title: true,
     content: true,
-  }).parse(unsafe_data);
+  })
+    .required()
+    .parse(unsafe_data);
   return await prisma.post.update({
-    data,
+    data: {
+      ...data,
+      content: data.content!,
+    },
     where: {
       id,
     },
