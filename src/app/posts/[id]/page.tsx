@@ -2,18 +2,18 @@ import { prisma } from "@/prisma";
 import { notFound } from "next/navigation";
 import * as dayjs from "dayjs";
 import { OutputData } from "@editorjs/editorjs";
-export const dynamicParams = true; // or false, to 404 on unknown paths
 import edjHTML from "editorjs-html";
 import Link from "next/link";
 
-export async function generateStaticParams() {
-  const posts = await prisma.post.findMany({
-    select: {
-      id: true,
-    },
-  });
-  return posts.map((post) => ({ ...post, id: String(post.id) }));
-}
+// export const dynamicParams = true; // or false, to 404 on unknown paths
+// export async function generateStaticParams() {
+//   const posts = await prisma.post.findMany({
+//     select: {
+//       id: true,
+//     },
+//   });
+//   return posts.map((post) => ({ ...post, id: String(post.id) }));
+// }
 
 export default async function PostWithIdPage({
   params,
@@ -48,7 +48,7 @@ export default async function PostWithIdPage({
           className="prose prose-xl"
           dangerouslySetInnerHTML={{
             __html: edjHTML({}, { strict: true }).parse(
-              post.content as unknown as OutputData,
+              post.content as unknown as OutputData
             ),
           }}
         ></div>

@@ -8,4 +8,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub],
   //@ts-ignore (some version mismatch, shouldn't affect the app)
   adapter: PrismaAdapter(prisma),
+  trustHost: true,
 });
